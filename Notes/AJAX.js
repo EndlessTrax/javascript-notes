@@ -62,4 +62,46 @@ var callback = function(response){
     // Do something
 };
 
+// The getJSON method is almost identical to the .get method. The data arg is optional. 
+// Callback function takes the arg 'response'
+$.getJSON(url, data, callback);
+
+// Can use .each function in jQuery as a way to iterate through the JSON objects returned. 
+$.each(response, function(index, value){
+    // Do stuff!
+});
+
+// Sending data to the server with POST.
+$.post(url, data, callback);
+
+// When sending form data you can use jQuery to fetcha all the fields automatically and encodes with .serialize.
+$(this).serialize();
+
+// You can set the url arg for the .post method by selectibg the html action attribute. 
+$(form).attr('action');
+
+// The callback function can be done with the .submit method.
+// function(response, e){
+//     e.preventDefault();
+//     $(form).submit();
+// };
+
+// The ajax method is the daddy of jQuery ajax methods.
+// Check docs for all the different settings available. Settings is a JS object.
+$.ajax(url, settings)
+
+// example...
+$.ajax(myurl, {
+    type: "POST",
+    data: myData, // Data can be anything needed to send. In this case it is info from a var. 
+    sucess: function(response) {
+        // success takes a function as the value. This is the callback function for the ajax request.
+    }
+})
+
+// The other methods are good but restrictive. The .ajax function is flexiable and takes a lot of settings. 
+// .fail() can be chained to ajax method. It takes a fuction for callback. This will run if ajax request fails. 
+// .fail =cCannot be used on .load() function, but all others.
+// .The callback function takes a XHR arg. === .fail(function(jqXHR){});
+
 
